@@ -1,6 +1,5 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
-
 const User = require('../models/user');
 
 passport.use(new GoogleStrategy({
@@ -34,6 +33,6 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
-        done(err, student)
+        done(err, user)
     })
 })

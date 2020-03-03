@@ -5,5 +5,5 @@ const Dest = require('../models/destination')
 module.exports = {
     index,
     create,
-    
 }
+

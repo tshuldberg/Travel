@@ -5,7 +5,7 @@ const Dest = require('../models/destination')
 module.exports = {
     index,
     addPost,
-    delPost,
+    // delPost,
     update,
     new: newPost,
     show
@@ -18,7 +18,7 @@ function index(req, res, next) {
     let sortKey = req.query.sort || 'name';
     User.find(modelQuery).sort(sortKey).exec(function (err, users) {
         if (err) return next(err)
-        res.render('users/index', {
+        res.render('user/index', {
             users,
             user: req.user,
             name: req.query.name,
@@ -27,12 +27,15 @@ function index(req, res, next) {
     })
 }
 
+
 function newPost(req, res) {
     res.render('users/new', { title: 'Add A Travel Post' })
 }
 
 function show(req, res) {
-
+    User.findById(req.params.id, function(err, user) {
+        res.render('user/show', {title: 'My Posts', user})
+    })
 }
 
 function addPost(req, res, next) {
@@ -41,14 +44,14 @@ function addPost(req, res, next) {
     })
 }
 
-function delPost(req, res, next) {
-    User.findOne({'posts._id': req.params.id }, function(err, user) {
-        User.post.id(req.paramds.id).remove()
-        User.save(function(err) {
-            res.redirect('/users')
-        })
-    })
-}
+// function delPost(req, res, next) {
+//     User.findOne({'posts._id': req.params.id }, function(err, user) {
+//         User.post.id(req.paramds.id).remove()
+//         User.save(function(err) {
+//             res.redirect('/users')
+//         })
+//     })
+// }
 
 function update(req, res, next) {
 
