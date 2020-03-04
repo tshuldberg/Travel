@@ -7,7 +7,8 @@ const postsSchema = new Schema({
         return new Date().getFullYear()
     }},
     title: String, 
-    destination: {type: Schema.Types.ObjectId, ref: 'Dest'}
+    destination: {type: Schema.Types.ObjectId, ref: 'Dest'},
+    author: String
 })
 
 

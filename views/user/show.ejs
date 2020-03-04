@@ -1,10 +1,14 @@
 <%- include('../partials/header') %>
 
-<a href="/new" class="new-post">New Post</a>
+<form method="GET" action="/users/<%= user._id %>/posts/new">
+    <input type="submit" value="New Post">
+</form>
 
+<form method="GET" action="/users/<%= user._id %>/posts">   
+    <input type="submit" value="My Posts">
+</form>
 
 <% user.posts.forEach(function(p) { %>
 <div><%= p.title %></div>
 <div><%= p.textContent %></div>
-<div><%= p %></div>
-<% }) %> 
+<% }) %>

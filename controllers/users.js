@@ -5,8 +5,6 @@ const Dest = require('../models/destination')
 module.exports = {
     index,
     addPost,
-    // delPost,
-    update,
     new: newPost,
     show
 }
@@ -29,8 +27,9 @@ function index(req, res, next) {
 
 
 function newPost(req, res) {
-    res.render('users/new', { title: 'Add A Travel Post' })
-}
+    User.findById(req.params.id, function(err, user) {
+        res.render('posts/new', { title: 'Create A New Post', user})
+    })}
 
 function show(req, res) {
     User.findById(req.params.id, function(err, user) {
@@ -44,16 +43,3 @@ function addPost(req, res, next) {
     })
 }
 
-// function delPost(req, res, next) {
-//     User.findOne({'posts._id': req.params.id }, function(err, user) {
-//         User.post.id(req.paramds.id).remove()
-//         User.save(function(err) {
-//             res.redirect('/users')
-//         })
-//     })
-// }
-
-function update(req, res, next) {
-
-
-}

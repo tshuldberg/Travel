@@ -3,34 +3,80 @@ const Post = require('../models/post')
 const Dest = require('../models/destination')
 
 module.exports = {
-    index,
     create,
-    new: newPost
+    new: newPost,
+    showAll,
+    showOne,
+    update,
+    delete: delPost
 }
 
-function index(req, res) {
+function showAll(req, res) {
+    console.log(req.user)
+    User.findById(req.params.id).populate('posts').exec(function (err, user) {
+        if (err) console.log("ERR ", err)
+        console.log('POSTS ARE ', user.posts)
+        res.render('posts/show', { title: 'My Posts', user })
+    })
+}
+
+function showOne(req, res) {
     User.findById(req.params.id, function (err, user) {
-        res.render('users', { title: 'My Posts', user})
+        Post.findById(req.params.postId, function (err, post) {
+            if(err) console.log('Error: ', err)
+            post.save((err, post) => {
+                if (err) console.log(err)
+                user.save((err) => {
+                    res.render('posts/edit', { title: 'Edit Post', user, post })
+                })
+            })
+        })
+    })
+}
+ 
+
+function update(req, res) {
+    User.findById(req.params.id, function (err, user) {
+        Post.findByIdAndUpdate(req.params.postId, req.body, {new: true}, function (err, post) {
+            post.save((err, post) => {
+                if (err) console.log(err)
+                user.save((err) => {
+                    res.redirect(`/users/${user._id}/posts`)
+                })
+            })
+        })
     })
 }
 
 function create(req, res) {
-    let post = new Post(req.body)
-    console.log(post)
-    post.save(function(err) {
-        if(err) console.log(err)
-        console.log(post)
-    })
-
-    User.findById(req.params.id, function(err, user) {
-        user.posts.push(post)
+    User.findById(req.params.id, function (err, user) {
+        let post = new Post(req.body)
+        post.author = user.name
+        console.log("POST ", post)
+        post.save((err, post) => {
+            if (err) console.log(err)
+            user.posts.push(post)
+            user.save(function (err) {
+                res.redirect(`/users/${user._id}/posts`)
+            })
+        })
     })
 }
 
 function newPost(req, res) {
-    User.findById(req.params.id, function(err, user) {
-
-        res.render('new', { title: 'Create A New Post', user, post, dest})
+    User.findById(req.params.id, function (err, user) {
+        res.render('posts/new', { title: 'Create A New Post', user })
     })
 }
 
+function delPost(req, res, next) {
+    User.findById(req.params.id, function (err, user) {
+        //user.posts.id(req.params.id).remove()
+        Post.findByIdAndDelete(req.params.postId, (err, post) => {
+            user.save(function (err) {
+                res.redirect(`/users/${user._id}/posts`)
+            })
+        })
+
+    })
+}

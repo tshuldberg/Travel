@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+<a href="/users/<%= user._id %>/posts/new" class="new-post">New Post</a>
+
+<% user.posts.forEach(function(p) { %>
+<div>Title: <%= p.title %></div>
+<div>Content: <%= p.textContent %></div>
+<div><a href="/users/<%= user._id %>/posts/<%= p._id %>">Edit Post</a></div>
+
+<%  }) %>

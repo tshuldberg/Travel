@@ -1,5 +1,7 @@
 <h1>LANDING PAGE</h1>
-<a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
+<% if (user) { %>
+    <a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
+    <% } %>
 <ul class="right">
     <li>
     <% if (user) { %>

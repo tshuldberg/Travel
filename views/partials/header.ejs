@@ -1,5 +1,6 @@
-<a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
-<ul class="right">
+<% if (user) { %>
+    <a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
+    <% } %><ul class="right">
     <li>
     <% if (user) { %>
         <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
