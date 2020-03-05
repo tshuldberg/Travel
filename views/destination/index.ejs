@@ -1,2 +1,7 @@
-<%- include('../partials/header') %>
 
+
+<select  name="country" id="country-select">
+<%  countries.forEach(function(country) { %>
+    <option value="<%= country.name %>"><%= country.name %></option>
+    <% }) %>
+</select>

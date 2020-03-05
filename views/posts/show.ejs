@@ -5,6 +5,8 @@
 <% user.posts.forEach(function(p) { %>
 <div>Title: <%= p.title %></div>
 <div>Content: <%= p.textContent %></div>
+<div>Date: <%= p.datePosted %></div>
+
 <div><a href="/users/<%= user._id %>/posts/<%= p._id %>">Edit Post</a></div>
 
 <%  }) %>

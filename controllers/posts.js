@@ -12,10 +12,8 @@ module.exports = {
 }
 
 function showAll(req, res) {
-    console.log(req.user)
     User.findById(req.params.id).populate('posts').exec(function (err, user) {
         if (err) console.log("ERR ", err)
-        console.log('POSTS ARE ', user.posts)
         res.render('posts/show', { title: 'My Posts', user })
     })
 }
@@ -52,7 +50,6 @@ function create(req, res) {
     User.findById(req.params.id, function (err, user) {
         let post = new Post(req.body)
         post.author = user.name
-        console.log("POST ", post)
         post.save((err, post) => {
             if (err) console.log(err)
             user.posts.push(post)
@@ -71,7 +68,6 @@ function newPost(req, res) {
 
 function delPost(req, res, next) {
     User.findById(req.params.id, function (err, user) {
-        //user.posts.id(req.params.id).remove()
         Post.findByIdAndDelete(req.params.postId, (err, post) => {
             user.save(function (err) {
                 res.redirect(`/users/${user._id}/posts`)
