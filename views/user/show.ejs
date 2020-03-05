@@ -8,6 +8,11 @@
     <input type="submit" value="My Posts">
 </form>
 
+<form method="GET" action="/destinations">   
+    <input type="submit" value="Where Ya Goin">
+</form>
+
+
 <% user.posts.forEach(function(p) { %>
 <div><%= p.title %></div>
 <div><%= p.textContent %></div>

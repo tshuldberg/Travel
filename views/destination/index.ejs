@@ -1,7 +1,9 @@
 
-
+<form method="POST" action="/destinations">
 <select  name="country" id="country-select">
 <%  countries.forEach(function(country) { %>
     <option value="<%= country.name %>"><%= country.name %></option>
     <% }) %>
 </select>
+<input type="submit" value="Explore">
+</form>

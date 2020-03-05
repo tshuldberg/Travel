@@ -3,8 +3,14 @@ const Schema = mongoose.Schema
 
 const destinationSchema = new Schema({
     country: String,
-    posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
-    name: String,
+    // pop
+    // region
+    //
+    //
+    //
+    //
+    //
+    
 })
 
 
