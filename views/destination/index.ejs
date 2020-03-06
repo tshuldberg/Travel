@@ -1,9 +1,22 @@
+<%- include('../partials/header') %>
+
+<form method="GET" action="/destinations">   
+    <select name="tester" id="numatwo">
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="c">c</option>
+    </select>
+    <input type="submit" value="Home">
+</form>
+
 
 <form method="POST" action="/destinations">
 <select  name="country" id="country-select">
+    <option >Where Ya Goin</option>
 <%  countries.forEach(function(country) { %>
     <option value="<%= country.name %>"><%= country.name %></option>
     <% }) %>
 </select>
 <input type="submit" value="Explore">
 </form>
+

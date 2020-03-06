@@ -1,11 +1,17 @@
-<% if (user) { %>
-    <a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
-    <% } %><ul class="right">
-    <li>
-    <% if (user) { %>
-        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-    <% } else { %>
-        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-    <% } %>
-    </li>
-</ul>
+<%- include('../partials/head') %>
+<nav class="header">
+    <div class="nav-wrapper">
+        <% if (user) { %>
+
+      <a href="/users/<%= user._id %>" class="my-page">My Page</a>
+      <% } %>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if (user) { %>
+        <li><a href="/logout">LogOut</a></li>
+        <% } else { %>
+        <li><a href="/auth/google">Google LogIn</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>

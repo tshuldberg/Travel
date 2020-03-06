@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
-const wishSchema = new Schema({
-  destination: {type: Schema.Types.ObjectId, ref: 'Dest'},
-  note: String
-})
+
 
 const userSchema = new Schema({
   name: String,
@@ -12,7 +9,6 @@ const userSchema = new Schema({
   avatar: String,
   googleId: String,
   posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
-  wishes: [wishSchema]
 }, {
   timestamps: true
 });

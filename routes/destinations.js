@@ -3,7 +3,7 @@ const destsCtrl = require('../controllers/destinations')
 
 
 router.get('/destinations', destsCtrl.getDest)
-router.post('/destinations/:id', destsCtrl.show)
+router.post('/destinations', destsCtrl.show)
 // post for all dests population /createdestinations ( home page or unique path)
 //
 

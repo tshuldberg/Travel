@@ -1,12 +1,13 @@
 <%- include('../partials/header') %>
 
-<form method="POST" action="/users/<%= user._id %>/posts/<%= post._id %>?_method=PUT">    
-<label>New Post:</label>
-<label >Title:</label>
-<input type="text" name="title" value="<%= post.title %>">
-<label >Body</label>
-<input type="text" name="textContent" value="<%= post.textContent %>">
-<input type="submit" value="Save Post">
+<form method="POST" action="/users/<%= user._id %>/posts/<%= post._id %>?_method=PUT">
+    <label>New Post:</label>
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= post.title %>">
+    <label>Body</label>
+    <input type="text" name="textContent" value="<%= post.textContent %>">
+
+    <input type="submit" value="Save Post">
 </form>
 <form action="/users/<%= user._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
     <button type="submit" class="btn-small red-text">X</button>

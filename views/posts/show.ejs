@@ -1,12 +1,30 @@
 <%- include('../partials/header') %>
 
-<a href="/users/<%= user._id %>/posts/new" class="new-post">New Post</a>
+
+<a id="new-post" href="/users/<%= user._id %>/posts/new" class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>New Post</a>
+
+
 
 <% user.posts.forEach(function(p) { %>
-<div>Title: <%= p.title %></div>
-<div>Content: <%= p.textContent %></div>
-<div>Date: <%= p.datePosted %></div>
 
-<div><a href="/users/<%= user._id %>/posts/<%= p._id %>">Edit Post</a></div>
-
+<div class="posts">
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card blue-grey darken-1">
+                <div class="card-image">
+                    <img src="images/sample-1.jpg">
+                    <span class="card-title"> <%= p.title %></span>
+                </div>
+                <div class="card-content">
+                    <div><%= p.textContent %></div>
+                    <div><%= p.datePosted %></div>
+                    <div>Where Ya Goin!    <%= p.destination %></div>
+                </div>
+                <div class="card-action">
+                    <a href="/users/<%= user._id %>/posts/<%= p._id %>">Edit Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <%  }) %>

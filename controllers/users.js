@@ -11,7 +11,6 @@ module.exports = {
 
 
 function index(req, res, next) {
-    console.log(req.query)
     let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
     let sortKey = req.query.sort || 'name';
     User.find(modelQuery).sort(sortKey).exec(function (err, users) {
@@ -33,7 +32,19 @@ function newPost(req, res) {
 
 function show(req, res) {
     User.findById(req.params.id, function(err, user) {
-        res.render('user/show', {title: 'My Posts', user})
+        console.log('THE USER IS HSHSHSHSHSHHSHS', user)
+        Post.find({}).populate('destination').exec(function(error, p) {
+            user.posts.forEach((post, i) => {
+                if(post === null) {
+                    user.posts.splice(i, 1)
+                }
+                
+            })
+            user.save((e ,u) => {
+                if(e) console.log('user save e is', e)
+                    res.render('user/show', {title: 'My Posts', user, p})
+            })
+        })
     })
 }
 

@@ -1,9 +1,19 @@
+<%- include('../partials/header') %>
+<form method="GET" action="/users">   
+    <input type="submit" value="Home">
+</form>
+
+
 <div>
 
     <div><%= country %></div>
     <% posts.forEach((post) => { %>
+
     <div><%= post.title %></div>
     <div><%= post.textContent %></div>
     <% }) %>
-
 </div>
+
+<form method="GET" action="/users/destinations">   
+    <input type="submit" value="Where Ya Goin">
+</form>

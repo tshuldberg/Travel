@@ -9,15 +9,14 @@ const methodOverride = require('method-override')
 
 
 require('dotenv').config()
-
 require('./config/database');
 // configure Passport
 require('./config/passport');
 const app = express();
 
 
-const destsRouter = require('./routes/destinations')
 const usersRouter = require('./routes/users');
+const destsRouter = require('./routes/destinations')
 const indexRouter = require('./routes/index');
 const postsRouter = require('./routes/posts')
 // view engine setup
