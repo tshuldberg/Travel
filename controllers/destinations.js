@@ -11,7 +11,7 @@ module.exports = {
 function getDest(req, res) {
     User.findById(req.params.id, function (err, user) {
 
-        // Dest.find({}, function (err, dest) {
+        // Dest.find({}, function (err, dest) {noce
         //     if (dest === []) {
         //         const option = {
         //             url: 'https://restcountries.eu/rest/v2/all'

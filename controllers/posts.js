@@ -54,13 +54,15 @@ function update(req, res) {
 
 function create(req, res) {
     User.findById(req.params.id, function (err, user) {
-        let country = new Dest({ country: req.body.destination });
+        let country = new Dest({ country: req.body.country });
         country.save((err, c) => {
             req.body.destination = c
             let post = new Post(req.body)
+            post.c = country.name
+            console.log('AAAAAAAAAAAAAAA', post.c)
             post.author = user.name
             post.save((err, post) => {
-
+            console.log(post)
                 if (err) {
                     console.log("ERRRRR ", err)
                     res.redirect(`/users/${user._id}/posts`)
@@ -75,6 +77,8 @@ function create(req, res) {
         })
     })
 }
+
+
 
 function newPost(req, res) {
     const options = {

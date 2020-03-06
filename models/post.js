@@ -8,7 +8,8 @@ const postsSchema = new Schema({
     }},
     title: String, 
     destination: {type: Schema.Types.ObjectId, ref: 'Dest'},
-    author: String
+    author: String,
+    c: String
 })
 
 module.exports = mongoose.model('Post', postsSchema);

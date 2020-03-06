@@ -13,7 +13,7 @@
     
     <form method="POST" action="/destinations">
         <select name="country" id="where-to" class="browser-default">
-            <option value="" if="where-select" disabled selected>Where Ya Goin!</option>
+            <option  id="where-select" disabled selected>Where Ya Goin!</option>
             <option>Where Ya Goin</option>
             <%  countries.forEach(function(country) { %>
                 <option value="<%= country.name %>"><%= country.name %></option>
