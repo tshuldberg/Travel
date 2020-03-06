@@ -22,6 +22,10 @@ a {
   display: inline-block;
 }
 
+.card-content {
+  color: rgb(211, 211, 211);
+}
+
 .my-page {
   line-height: 4;
   margin-left: 1em;
@@ -30,4 +34,62 @@ a {
 #new-post {
   float: right;
   margin-top: .5rem;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: .5rem;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2016&q=80");
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.landing {
+  background: #597FF0;
+  background: -webkit-linear-gradient(top left, #597FF0, #139751);
+  background: -moz-linear-gradient(top left, #597FF0, #139751);
+  background: linear-gradient(to bottom right, #597FF0, #139751);
+  text-align: center;
+
+}
+
+#landing-globe {
+  font-size: 70vh;
+  color: rgb(230, 230, 230);
+}
+
+.landing-title {
+  color: white;
+  margin-top: 2rem;
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.home-buttons {
+  opacity: 90%;
+  background: transparent;
+}
+
+#new-home, #posts-home, #where-home {
+  color: black;
+  margin-top: 6rem;
+  border-bottom: 1px ;
+  font-weight: 600;
+  opacity: 100%;
+  background-color: rgb(238, 238, 238);
+}
+
+.posts-body {
+  background-color: rgba(var(--b3f,250,250,250),1);
+}
+
+#where-to {
+  text-align: center;
+  width: 20%;
 }

@@ -1,18 +1,28 @@
-<%- include('../partials/header') %>
+<%- include('../partials/head') %>
+<nav class="header">
+    <div class="nav-wrapper">
+        <% if (user) { %>
 
-<form method="GET" action="/users/<%= user._id %>/posts/new">
-    <input type="submit" value="New Post">
-</form>
+      <a href="/users/<%= user._id %>" class="my-page"><i class="fas fa-globe-americas fa-3x"></i></a>
+      <% } %>
 
-<form method="GET" action="/users/<%= user._id %>/posts">   
-    <input type="submit" value="My Posts">
-</form>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/users/<%= user._id %>/posts/new">New Post</a></li>
+        <li><a href="/users/<%= user._id %>/posts">My Posts</a></li>
+        <li><a href="/destinations">Where Ya Goin</a></li>
 
-<form method="GET" action="/destinations">   
-    <input type="submit" value="Where Ya Goin">
-</form>
+        <% if (user) { %>
+        <li><a href="/logout">LogOut</a></li>
+        <% } else { %>
+        <li><a href="/auth/google">Google LogIn</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
 
-<% user.posts.forEach(function(p) { %>
-<div><%= p.title %></div>
-<div><%= p.textContent %></div>
-<% }) %>
+<div class="home-page">
+    <div class="home-buttons">
+
+
+    </div>
+</div>

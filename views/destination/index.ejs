@@ -1,22 +1,30 @@
-<%- include('../partials/header') %>
-
-<form method="GET" action="/destinations">   
-    <select name="tester" id="numatwo">
-        <option value="a">a</option>
-        <option value="b">b</option>
-        <option value="c">c</option>
-    </select>
-    <input type="submit" value="Home">
-</form>
+<%- include('../partials/head') %>
+<%- include('../partials/head') %>
 
 
-<form method="POST" action="/destinations">
-<select  name="country" id="country-select">
-    <option >Where Ya Goin</option>
-<%  countries.forEach(function(country) { %>
-    <option value="<%= country.name %>"><%= country.name %></option>
-    <% }) %>
-</select>
-<input type="submit" value="Explore">
-</form>
+<body class="landing">
 
+    <a href="/users" class="my-page"><i class="fas fa-globe-americas fa-10x" id="landing-globe"></i></a>
+    
+    
+    
+    
+    
+    
+    <form method="POST" action="/destinations">
+        <select name="country" id="where-to" class="browser-default">
+            <option value="" if="where-select" disabled selected>Where Ya Goin!</option>
+            <option>Where Ya Goin</option>
+            <%  countries.forEach(function(country) { %>
+                <option value="<%= country.name %>"><%= country.name %></option>
+                <% }) %>
+                    <input type="submit" class="explore" value="Explore">
+            </select>
+        </form>
+    </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+</script>

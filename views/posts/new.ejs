@@ -1,17 +1,27 @@
 <%- include('../partials/header') %>
 
-<form method="POST" action="/users/<%= user._id %>/posts">    
-<label>New Post:</label>
-<label >Title:</label>
-<input type="text" name="title">
-<label >Body</label>
-<input type="text" name="textContent">
-<select  name="destination" class="select">
-<%  countries.forEach(function(country) { %>
-    <option value="<%= country.name %>"><%= country.name %></option>
-    <% }) %>
-</select>
-<input type="submit" value="Save Post">
+<form method="POST" action="/users/<%= user._id %>/posts">
+    <label>New Post:</label>
+    <label>Title:</label>
+    <input type="text" name="title">
+    <label>Body</label>
+    <input type="text" name="textContent">
+    <select name="country" class="browser-default">
+        <option value="" disabled selected>Where Ya Goin!</option>
+        <option>Where Ya Goin</option>
+        <%  countries.forEach(function(country) { %>
+            <option value="<%= country.name %>"><%= country.name %></option>
+            <% }) %>
+            <input type="submit" class="waves-effect waves-light btn-large" value="My Posts">
+        </select>
+    <input type="submit" class="waves-effect waves-light btn-large" value="Save Post">
 
 
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+</script>

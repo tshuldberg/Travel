@@ -1,13 +1,15 @@
-<h1>LANDING PAGE</h1>
-<% if (user) { %>
-    <a href="/users/<%= user._id %>" class="brand-logo left">My Page</a>
-    <% } %>
-<ul class="right">
-    <li>
+<%- include('../partials/head') %>
+
+
+<body class="landing">
+
     <% if (user) { %>
-        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+
+    <a href="/users/<%= user._id %>" class="my-page"><i class="fas fa-globe-americas fa-10x" id="landing-globe"></i></a>
     <% } else { %>
-        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+        <a href="/auth/google" class="my-page"><i class="fas fa-globe-americas fa-10x"id="landing-globe"></i></a>
     <% } %>
-    </li>
-</ul>
+    
+
+    <div class="landing-title">Where Ya Goin</div>
+</body>
