@@ -6,6 +6,8 @@
 
 ![alt text](/public/images/where.png)
 ![alt text](/public/images/user.png)
+![alt text](/public/images/posts.png)
+
 
 
 ### https://where-ya-goin.herokuapp.com/ ###
