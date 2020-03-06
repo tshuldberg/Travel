@@ -3,14 +3,14 @@ const Schema = mongoose.Schema
 
 const destinationSchema = new Schema({
     country: String,
-    // pop
-    // region
-    //
-    //
-    //
-    //
-    //
-    
+    population: Number,
+    region: String,
+    subRegion: String,
+    language: String,
+    capital: String,
+    currency: String,
+    timeZone: String,
+    borders:[String]
 })
 
 
